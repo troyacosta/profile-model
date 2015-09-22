@@ -19,6 +19,7 @@ var App = Backbone.Router.extend({
 
 var app = new App();
 Backbone.history.start();
+user.fetch();
 
 $('#name').val(user.get('name'));
 $('#inputEmail3').val(user.get('email'));
@@ -31,6 +32,7 @@ $('form').submit(function (e) {
         email: $('#inputEmail3').val(),
         role: $('#role').val()
     });
+    user.save();
 });
 
 user.on('change', function () {
